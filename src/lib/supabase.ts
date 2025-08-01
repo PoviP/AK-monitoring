@@ -24,7 +24,7 @@ const createMockClient = () => ({
 })
 
 export const supabase = isSupabaseConfigured 
-  ? createClient(supabaseUrl, supabaseAnonKey)
+  ? createMockClient()
   : createMockClient()
 
 export type Database = {
