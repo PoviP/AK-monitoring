@@ -1,0 +1,54 @@
+{
+  "name": "astral-keys-monitor",
+  "version": "1.0.0",
+  "description": "Simple Astral Keys Monitor",
+  "author": "Astral Keys Monitor",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build": "electron-builder --win --dir",
+    "build-exe": "electron-builder --win --publish=never"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "electron-store": "^8.1.0",
+    "googleapis": "^154.1.0"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.astralkeys.monitor",
+    "productName": "Astral Keys Monitor",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "renderer.js",
+      "index.html",
+      "styles.css",
+      "icon.png",
+      "settings.html",
+      "service-account.json"
+    ],
+    "extraResources": [
+      {
+        "from": "service-account.json",
+        "to": "service-account.json"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "icon.png",
+      "sign": false
+    }
+  }
+}

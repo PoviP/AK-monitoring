@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astral Keys Monitor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔑 Astral Keys Monitor</h1>
+            <p>Automatic key tracking and monitoring</p>
+        </header>
+
+        <div class="controls">
+            <button id="selectFile" class="btn btn-primary">Select AstralKeys.lua File</button>
+            <button id="scanForFiles" class="btn btn-info">🔍 Scan AK Files</button>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle">⚙️ Tools</button>
+                <div class="dropdown-menu">
+                    <button id="refresh" class="dropdown-item">Refresh Data</button>
+                    <button id="testParse" class="dropdown-item">Test Parse Current File</button>
+                    <button id="exportToSheets" class="dropdown-item">Export to Google Sheets</button>
+                </div>
+            </div>
+            <button id="toggleTheme" class="btn btn-secondary">🌙</button>
+        </div>
+        
+        <div class="settings">
+            <div class="settings-row">
+                <label class="setting-item">
+                    <input type="checkbox" id="autoStart" />
+                    Auto-start on Windows boot
+                </label>
+                <label class="setting-item">
+                    <input type="checkbox" id="startHidden" />
+                    Start hidden in system tray
+                </label>
+            </div>
+        </div>
+
+        <div class="status">
+            <div id="statusText">Not monitoring</div>
+            <div id="filePath"></div>
+            <div id="lastUpdated"></div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Total Keys</h3>
+                <div id="totalKeys">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Friends Keys</h3>
+                <div id="friendsKeys">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Guild Keys</h3>
+                <div id="guildKeys">0</div>
+            </div>
+        </div>
+
+        <div class="dungeon-stats">
+            <h2>Dungeon Popularity</h2>
+            <div id="dungeonChart" class="dungeon-chart">
+                <div class="empty-state">No dungeon data available</div>
+            </div>
+        </div>
+
+        <div class="keys-container">
+            <h2>Keys</h2>
+            <div id="keysList" class="keys-list">
+                <div class="empty-state">No keys found. Select a file to start monitoring.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
